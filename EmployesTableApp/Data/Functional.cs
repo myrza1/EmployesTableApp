@@ -531,6 +531,7 @@ namespace EmployesTableApp.Data
         {
             XDocument doc = null;
             doc = XDocument.Load("http://57.1.127.133/RAMPApps/ServicesSettings2.xml");
+            // ec2-13-58-26-239.us-east-2.compute.amazonaws.com
 
             XName name = "name";
             XName tablename = "tablename";
