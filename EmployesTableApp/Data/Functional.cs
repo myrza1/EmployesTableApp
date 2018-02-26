@@ -209,7 +209,6 @@ namespace EmployesTableApp.Data
                             {
                                 selFlight.filght_to = value.Value;
                             }
-
                             else if (value.Attribute("propertyName").Value == "Capt")
                             {
                                 selFlight.Capt = value.Value;

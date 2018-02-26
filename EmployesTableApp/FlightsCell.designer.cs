@@ -1,4 +1,4 @@
-﻿// WARNING
+// WARNING
 //
 // This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
@@ -16,6 +16,10 @@ namespace EmployesTableApp
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel AircraftReg { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel DestinationLabel { get; set; }
 
         [Outlet]
@@ -28,6 +32,11 @@ namespace EmployesTableApp
 
         void ReleaseDesignerOutlets ()
         {
+            if (AircraftReg != null) {
+                AircraftReg.Dispose ();
+                AircraftReg = null;
+            }
+
             if (DestinationLabel != null) {
                 DestinationLabel.Dispose ();
                 DestinationLabel = null;

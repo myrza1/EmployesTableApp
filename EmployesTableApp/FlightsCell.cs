@@ -14,12 +14,12 @@ namespace EmployesTableApp
 
         internal void UpdateCell(Flight flight)
         {
-           
+            FlightNumber.Text = flight.AirlineDesignatorIATA + flight.FlightNumber;
+            ScheduleLabel.Text = flight.ScheduledTime.ToString("hh:mm");
+            DestinationLabel.Text = flight.filght_from;
+            //AircraftType.Text = flight.AircraftType;
+            AircraftReg.Text = flight.AircraftRegistration;
 
-
-            FlightNumber.Text = flight.FlightNumber;
-            ScheduleLabel.Text = flight.TAXIFUEL;
-            DestinationLabel.Text = flight.arr_flight_type;
         }
 
         internal void LikeCell()
