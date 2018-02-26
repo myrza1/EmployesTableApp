@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WorkBridge.Modules.AMS.AMSIntegrationAPI.Mod.Intf.DataTypes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WorkBridge.Modules.AMS.AMSIntegrationAPI.Mod.Intf.DataTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="FlightId">
+    <xs:sequence>
+      <xs:element name="_hasAirportCodes" type="xs:boolean" />
+      <xs:element name="_hasFlightDesignator" type="xs:boolean" />
+      <xs:element name="_hasScheduledTime" type="xs:boolean" />
+      <xs:element name="airlineDesignatorField" nillable="true" type="tns:ArrayOfLookupCode" />
+      <xs:element name="airportCodeField" nillable="true" type="tns:ArrayOfLookupCode" />
+      <xs:element name="flightKindField" type="tns:FlightKind" />
+      <xs:element name="flightNumberField" nillable="true" type="xs:string" />
+      <xs:element name="scheduledDateField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightId" nillable="true" type="tns:FlightId" />
+  <xs:complexType name="ArrayOfLookupCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LookupCode" nillable="true" type="tns:LookupCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLookupCode" nillable="true" type="tns:ArrayOfLookupCode" />
+  <xs:complexType name="LookupCode">
+    <xs:sequence>
+      <xs:element name="codeContextField" type="tns:CodeContext" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LookupCode" nillable="true" type="tns:LookupCode" />
+  <xs:simpleType name="CodeContext">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ICAO" />
+      <xs:enumeration value="IATA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CodeContext" nillable="true" type="tns:CodeContext" />
+  <xs:simpleType name="FlightKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Arrival" />
+      <xs:enumeration value="Departure" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FlightKind" nillable="true" type="tns:FlightKind" />
+  <xs:complexType name="ArrayOfPropertyValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyValue" nillable="true" type="tns:PropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPropertyValue" nillable="true" type="tns:ArrayOfPropertyValue" />
+  <xs:complexType name="PropertyValue">
+    <xs:sequence>
+      <xs:element name="codeContextField" type="tns:CodeContext" />
+      <xs:element name="codeContextFieldSpecified" type="xs:boolean" />
+      <xs:element name="propertyNameField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyValue" nillable="true" type="tns:PropertyValue" />
+  <xs:complexType name="FlightUpdateInformation">
+    <xs:sequence>
+      <xs:element name="activityUpdateField" nillable="true" type="tns:ArrayOfActivityUpdate" />
+      <xs:element name="eventUpdateField" nillable="true" type="tns:ArrayOfEventUpdate" />
+      <xs:element name="tableValueUpdateField" nillable="true" type="tns:ArrayOfTableValueUpdate" />
+      <xs:element name="updateField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightUpdateInformation" nillable="true" type="tns:FlightUpdateInformation" />
+  <xs:complexType name="ArrayOfActivityUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActivityUpdate" nillable="true" type="tns:ActivityUpdate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActivityUpdate" nillable="true" type="tns:ArrayOfActivityUpdate" />
+  <xs:complexType name="ActivityUpdate">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="updateField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ActivityUpdate" nillable="true" type="tns:ActivityUpdate" />
+  <xs:complexType name="ArrayOfEventUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventUpdate" nillable="true" type="tns:EventUpdate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventUpdate" nillable="true" type="tns:ArrayOfEventUpdate" />
+  <xs:complexType name="EventUpdate">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="updateField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventUpdate" nillable="true" type="tns:EventUpdate" />
+  <xs:complexType name="ArrayOfTableValueUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TableValueUpdate" nillable="true" type="tns:TableValueUpdate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTableValueUpdate" nillable="true" type="tns:ArrayOfTableValueUpdate" />
+  <xs:complexType name="TableValueUpdate">
+    <xs:sequence>
+      <xs:element name="propertyNameField" nillable="true" type="xs:string" />
+      <xs:element name="rowField" nillable="true" type="tns:ArrayOfTableRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TableValueUpdate" nillable="true" type="tns:TableValueUpdate" />
+  <xs:complexType name="ArrayOfTableRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TableRow" nillable="true" type="tns:TableRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTableRow" nillable="true" type="tns:ArrayOfTableRow" />
+  <xs:complexType name="TableRow">
+    <xs:sequence>
+      <xs:element name="propertyNameField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TableRow" nillable="true" type="tns:TableRow" />
+  <xs:complexType name="FlightUpdateInformationExtended">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FlightUpdateInformation">
+        <xs:sequence>
+          <xs:element name="codeSharesUpdateField" nillable="true" type="tns:ArrayOfCodeShareFlightIdentifier" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FlightUpdateInformationExtended" nillable="true" type="tns:FlightUpdateInformationExtended" />
+  <xs:complexType name="ArrayOfCodeShareFlightIdentifier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeShareFlightIdentifier" nillable="true" type="tns:CodeShareFlightIdentifier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeShareFlightIdentifier" nillable="true" type="tns:ArrayOfCodeShareFlightIdentifier" />
+  <xs:complexType name="CodeShareFlightIdentifier">
+    <xs:sequence>
+      <xs:element name="airlineDesignatorField" nillable="true" type="tns:ArrayOfLookupCode" />
+      <xs:element name="flightNumberField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeShareFlightIdentifier" nillable="true" type="tns:CodeShareFlightIdentifier" />
+  <xs:complexType name="StandDowngradeState">
+    <xs:sequence>
+      <xs:element name="standsField" nillable="true" type="tns:ArrayOfStandResource" />
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandDowngradeState" nillable="true" type="tns:StandDowngradeState" />
+  <xs:complexType name="ArrayOfStandResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StandResource" nillable="true" type="tns:StandResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStandResource" nillable="true" type="tns:ArrayOfStandResource" />
+  <xs:complexType name="StandResource">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Resource">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StandResource" nillable="true" type="tns:StandResource" />
+  <xs:complexType name="Resource">
+    <xs:sequence>
+      <xs:element name="areaField" nillable="true" type="tns:ArrayOfPropertyValue" />
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Resource" nillable="true" type="tns:Resource" />
+  <xs:complexType name="DowngradeIdentifier">
+    <xs:sequence>
+      <xs:element name="airportCodeField" nillable="true" type="tns:ArrayOfLookupCode" />
+      <xs:element name="downgradeUniqueIdField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DowngradeIdentifier" nillable="true" type="tns:DowngradeIdentifier" />
+  <xs:complexType name="GateDowngradeState">
+    <xs:sequence>
+      <xs:element name="gatesField" nillable="true" type="tns:ArrayOfGateResource" />
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GateDowngradeState" nillable="true" type="tns:GateDowngradeState" />
+  <xs:complexType name="ArrayOfGateResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GateResource" nillable="true" type="tns:GateResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGateResource" nillable="true" type="tns:ArrayOfGateResource" />
+  <xs:complexType name="GateResource">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Resource">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GateResource" nillable="true" type="tns:GateResource" />
+  <xs:complexType name="ChuteDowngradeState">
+    <xs:sequence>
+      <xs:element name="chutesField" nillable="true" type="tns:ArrayOfChuteResource" />
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChuteDowngradeState" nillable="true" type="tns:ChuteDowngradeState" />
+  <xs:complexType name="ArrayOfChuteResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChuteResource" nillable="true" type="tns:ChuteResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChuteResource" nillable="true" type="tns:ArrayOfChuteResource" />
+  <xs:complexType name="ChuteResource">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Resource">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChuteResource" nillable="true" type="tns:ChuteResource" />
+  <xs:complexType name="CheckInDowngradeState">
+    <xs:sequence>
+      <xs:element name="checkInsField" nillable="true" type="tns:ArrayOfCheckInResource" />
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckInDowngradeState" nillable="true" type="tns:CheckInDowngradeState" />
+  <xs:complexType name="ArrayOfCheckInResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckInResource" nillable="true" type="tns:CheckInResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCheckInResource" nillable="true" type="tns:ArrayOfCheckInResource" />
+  <xs:complexType name="CheckInResource">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Resource">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CheckInResource" nillable="true" type="tns:CheckInResource" />
+  <xs:complexType name="ArrivalDeskDowngradeState">
+    <xs:sequence>
+      <xs:element name="arrivalDesksField" nillable="true" type="tns:ArrayOfArrivalDeskResource" />
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrivalDeskDowngradeState" nillable="true" type="tns:ArrivalDeskDowngradeState" />
+  <xs:complexType name="ArrayOfArrivalDeskResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrivalDeskResource" nillable="true" type="tns:ArrivalDeskResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArrivalDeskResource" nillable="true" type="tns:ArrayOfArrivalDeskResource" />
+  <xs:complexType name="ArrivalDeskResource">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Resource">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ArrivalDeskResource" nillable="true" type="tns:ArrivalDeskResource" />
+  <xs:complexType name="LoungeDowngradeState">
+    <xs:sequence>
+      <xs:element name="loungesField" nillable="true" type="tns:ArrayOfLoungeResource" />
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoungeDowngradeState" nillable="true" type="tns:LoungeDowngradeState" />
+  <xs:complexType name="ArrayOfLoungeResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LoungeResource" nillable="true" type="tns:LoungeResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLoungeResource" nillable="true" type="tns:ArrayOfLoungeResource" />
+  <xs:complexType name="LoungeResource">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Resource">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoungeResource" nillable="true" type="tns:LoungeResource" />
+  <xs:complexType name="VehicleDowngradeState">
+    <xs:sequence>
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+      <xs:element name="vehiclesField" nillable="true" type="tns:ArrayOfVehicleResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehicleDowngradeState" nillable="true" type="tns:VehicleDowngradeState" />
+  <xs:complexType name="ArrayOfVehicleResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleResource" nillable="true" type="tns:VehicleResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicleResource" nillable="true" type="tns:ArrayOfVehicleResource" />
+  <xs:complexType name="VehicleResource">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Resource">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VehicleResource" nillable="true" type="tns:VehicleResource" />
+  <xs:complexType name="CarouselDowngradeState">
+    <xs:sequence>
+      <xs:element name="carouselsField" nillable="true" type="tns:ArrayOfCarouselResource" />
+      <xs:element name="valueField" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarouselDowngradeState" nillable="true" type="tns:CarouselDowngradeState" />
+  <xs:complexType name="ArrayOfCarouselResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarouselResource" nillable="true" type="tns:CarouselResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarouselResource" nillable="true" type="tns:ArrayOfCarouselResource" />
+  <xs:complexType name="CarouselResource">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Resource">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CarouselResource" nillable="true" type="tns:CarouselResource" />
+  <xs:complexType name="SlotRequestIdentifier">
+    <xs:sequence>
+      <xs:element name="slotRequestUniqueIdField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SlotRequestIdentifier" nillable="true" type="tns:SlotRequestIdentifier" />
+  <xs:complexType name="ArrayOfArrayOfPropertyValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfPropertyValue" nillable="true" type="tns:ArrayOfPropertyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArrayOfPropertyValue" nillable="true" type="tns:ArrayOfArrayOfPropertyValue" />
+</xs:schema>

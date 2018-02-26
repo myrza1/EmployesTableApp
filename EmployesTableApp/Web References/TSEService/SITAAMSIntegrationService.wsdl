@@ -1,0 +1,1826 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.sita.aero/ams6-xml-api-webservice" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SITAAMSIntegrationService" targetNamespace="http://www.sita.aero/ams6-xml-api-webservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.sita.aero/ams6-xml-api-webservice/Imports">
+      <xsd:import schemaLocation="http://tse2-ams-apv/SITAAMSIntegrationService/v2/?xsd=xsd0" namespace="http://www.sita.aero/ams6-xml-api-webservice" />
+      <xsd:import schemaLocation="http://tse2-ams-apv/SITAAMSIntegrationService/v2/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://tse2-ams-apv/SITAAMSIntegrationService/v2/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WorkBridge.Modules.AMS.AMSIntegrationWebAPI.Srv" />
+      <xsd:import schemaLocation="http://tse2-ams-apv/SITAAMSIntegrationService/v2/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WorkBridge.Modules.AMS.AMSIntegrationAPI.Mod.Intf.DataTypes" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAMSIntegrationService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_Logoff_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logoff" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_Logoff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetUserRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetUserRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetUserWebAccessRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserWebAccessRights" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetUserWebAccessRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserWebAccessRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetFlights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlights" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetFlights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetMovementsOverlappingWithPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementsOverlappingWithPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetMovementsOverlappingWithPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementsOverlappingWithPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAirports_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAirports" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAirports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAirportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAircrafts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAircrafts" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAircrafts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAircraftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAircraftTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAircraftTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAircraftTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAircraftTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAirlines_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAirlines" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAirlines_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAirlinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCustomsTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomsTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCustomsTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomsTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetRoutes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetRoutes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAreas_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAreas" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAreas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAreasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetStands_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStands" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetStands_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCarousels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarousels" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCarousels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarouselsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCheckIns_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckIns" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCheckIns_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckInsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetArrivalDesks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArrivalDesks" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetArrivalDesks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArrivalDesksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetChutes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChutes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetChutes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChutesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetGates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGates" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetGates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetLounges_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLounges" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetLounges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoungesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetVehicles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicles" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetVehicles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehiclesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAircraftCustomFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAircraftCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAircraftCustomFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAircraftCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAircraftTypeCustomFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAircraftTypeCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAircraftTypeCustomFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAircraftTypeCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAirlineCustomFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAirlineCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAirlineCustomFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAirlineCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAirportCustomFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAirportCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAirportCustomFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAirportCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetRouteCustomFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRouteCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetRouteCustomFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRouteCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetArrivalFlightCustomFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArrivalFlightCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetArrivalFlightCustomFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArrivalFlightCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetDepartureFlightCustomFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartureFlightCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetDepartureFlightCustomFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartureFlightCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetMovementCustomFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetMovementCustomFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetFlight_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlight" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetFlight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCommonCheckInAllocationShapes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommonCheckInAllocationShapes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCommonCheckInAllocationShapes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommonCheckInAllocationShapesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCommonArrivalDeskAllocationShapes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommonArrivalDeskAllocationShapes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCommonArrivalDeskAllocationShapes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommonArrivalDeskAllocationShapesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateFlight_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFlight" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateFlight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateFlightExtended_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFlightExtended" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateFlightExtended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFlightExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateFlightWithCodeShares_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFlightWithCodeShares" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateFlightWithCodeShares_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFlightWithCodeSharesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteFlight_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlight" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteFlight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateFlight_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlight" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateFlight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateFlightExtended_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlightExtended" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateFlightExtended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlightExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateFlightWithCodeShares_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlightWithCodeShares" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateFlightWithCodeShares_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlightWithCodeSharesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UnlinkFlight_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkFlight" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UnlinkFlight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_LinkFlights_InputMessage">
+    <wsdl:part name="parameters" element="tns:LinkFlights" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_LinkFlights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LinkFlightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateStandDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStandDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateStandDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStandDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateStandDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStandDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateStandDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStandDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteStandDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStandDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteStandDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStandDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetStandDowngrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStandDowngrades" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetStandDowngrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStandDowngradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetStandDowngradeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStandDowngradeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetStandDowngradeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStandDowngradeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateGateDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGateDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateGateDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGateDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateGateDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGateDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateGateDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGateDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteGateDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGateDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteGateDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGateDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetGateDowngrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGateDowngrades" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetGateDowngrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGateDowngradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetGateDowngradeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGateDowngradeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetGateDowngradeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGateDowngradeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateChuteDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateChuteDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateChuteDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateChuteDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateChuteDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChuteDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateChuteDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChuteDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteChuteDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChuteDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteChuteDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChuteDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetChuteDowngrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChuteDowngrades" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetChuteDowngrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChuteDowngradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetChuteDowngradeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChuteDowngradeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetChuteDowngradeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChuteDowngradeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateCheckInDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCheckInDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateCheckInDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCheckInDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateCheckInDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCheckInDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateCheckInDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCheckInDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteCheckInDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCheckInDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteCheckInDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCheckInDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCheckInDowngrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckInDowngrades" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCheckInDowngrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckInDowngradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCheckInDowngradeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckInDowngradeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCheckInDowngradeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckInDowngradeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateArrivalDeskDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateArrivalDeskDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateArrivalDeskDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateArrivalDeskDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateArrivalDeskDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArrivalDeskDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateArrivalDeskDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArrivalDeskDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteArrivalDeskDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArrivalDeskDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteArrivalDeskDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArrivalDeskDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetArrivalDeskDowngrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArrivalDeskDowngrades" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetArrivalDeskDowngrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArrivalDeskDowngradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetArrivalDeskDowngradeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArrivalDeskDowngradeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetArrivalDeskDowngradeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArrivalDeskDowngradeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateLoungeDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLoungeDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateLoungeDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLoungeDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateLoungeDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLoungeDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateLoungeDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLoungeDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteLoungeDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLoungeDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteLoungeDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLoungeDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetLoungeDowngrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoungeDowngrades" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetLoungeDowngrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoungeDowngradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetLoungeDowngradeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoungeDowngradeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetLoungeDowngradeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoungeDowngradeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateVehicleDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateVehicleDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateVehicleDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateVehicleDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateVehicleDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateVehicleDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteVehicleDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteVehicleDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetVehicleDowngrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleDowngrades" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetVehicleDowngrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleDowngradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetVehicleDowngradeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleDowngradeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetVehicleDowngradeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleDowngradeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateCarouselDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCarouselDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateCarouselDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCarouselDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateCarouselDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCarouselDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateCarouselDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCarouselDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteCarouselDowngrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarouselDowngrade" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteCarouselDowngrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarouselDowngradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCarouselDowngrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarouselDowngrades" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCarouselDowngrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarouselDowngradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCarouselDowngradeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarouselDowngradeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetCarouselDowngradeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarouselDowngradeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetSlotRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlotRequests" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetSlotRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlotRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetSlotRequestsForAirline_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlotRequestsForAirline" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetSlotRequestsForAirline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlotRequestsForAirlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateSlotRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSlotRequest" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateSlotRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSlotRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateSlotRequestInCompliance_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSlotRequestInCompliance" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_CreateSlotRequestInCompliance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSlotRequestInComplianceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateSlotRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSlotRequest" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateSlotRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSlotRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_SplitSlotRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SplitSlotRequest" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_SplitSlotRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SplitSlotRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteSlotRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSlotRequest" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_DeleteSlotRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSlotRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateSlotRequestStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSlotRequestStatus" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UpdateSlotRequestStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSlotRequestStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetSlotRequestStatusHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlotRequestStatusHistory" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetSlotRequestStatusHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSlotRequestStatusHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAvailableHomeAirportsForLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableHomeAirportsForLogin" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetAvailableHomeAirportsForLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableHomeAirportsForLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_LockFlight_InputMessage">
+    <wsdl:part name="parameters" element="tns:LockFlight" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_LockFlight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LockFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UnlockFlight_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockFlight" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_UnlockFlight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetEventDefinitions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventDefinitions" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetEventDefinitions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventDefinitionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetActivityDefinitions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivityDefinitions" />
+  </wsdl:message>
+  <wsdl:message name="IAMSIntegrationService_GetActivityDefinitions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivityDefinitionsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAMSIntegrationService">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/Login" message="tns:IAMSIntegrationService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/LoginResponse" message="tns:IAMSIntegrationService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logoff">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/Logoff" message="tns:IAMSIntegrationService_Logoff_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/LogoffResponse" message="tns:IAMSIntegrationService_Logoff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetUserRoles" message="tns:IAMSIntegrationService_GetUserRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetUserRolesResponse" message="tns:IAMSIntegrationService_GetUserRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWebAccessRights">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetUserWebAccessRights" message="tns:IAMSIntegrationService_GetUserWebAccessRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetUserWebAccessRightsResponse" message="tns:IAMSIntegrationService_GetUserWebAccessRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlights">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetFlights" message="tns:IAMSIntegrationService_GetFlights_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetFlightsResponse" message="tns:IAMSIntegrationService_GetFlights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementsOverlappingWithPeriod">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetMovementsOverlappingWithPeriod" message="tns:IAMSIntegrationService_GetMovementsOverlappingWithPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetMovementsOverlappingWithPeriodResponse" message="tns:IAMSIntegrationService_GetMovementsOverlappingWithPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAirports">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirports" message="tns:IAMSIntegrationService_GetAirports_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirportsResponse" message="tns:IAMSIntegrationService_GetAirports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAircrafts">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircrafts" message="tns:IAMSIntegrationService_GetAircrafts_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftsResponse" message="tns:IAMSIntegrationService_GetAircrafts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAircraftTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftTypes" message="tns:IAMSIntegrationService_GetAircraftTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftTypesResponse" message="tns:IAMSIntegrationService_GetAircraftTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAirlines">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirlines" message="tns:IAMSIntegrationService_GetAirlines_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirlinesResponse" message="tns:IAMSIntegrationService_GetAirlines_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomsTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCustomsTypes" message="tns:IAMSIntegrationService_GetCustomsTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCustomsTypesResponse" message="tns:IAMSIntegrationService_GetCustomsTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetRoutes" message="tns:IAMSIntegrationService_GetRoutes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetRoutesResponse" message="tns:IAMSIntegrationService_GetRoutes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreas">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAreas" message="tns:IAMSIntegrationService_GetAreas_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAreasResponse" message="tns:IAMSIntegrationService_GetAreas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStands">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetStands" message="tns:IAMSIntegrationService_GetStands_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetStandsResponse" message="tns:IAMSIntegrationService_GetStands_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarousels">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCarousels" message="tns:IAMSIntegrationService_GetCarousels_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCarouselsResponse" message="tns:IAMSIntegrationService_GetCarousels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckIns">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCheckIns" message="tns:IAMSIntegrationService_GetCheckIns_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCheckInsResponse" message="tns:IAMSIntegrationService_GetCheckIns_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArrivalDesks">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalDesks" message="tns:IAMSIntegrationService_GetArrivalDesks_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalDesksResponse" message="tns:IAMSIntegrationService_GetArrivalDesks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChutes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetChutes" message="tns:IAMSIntegrationService_GetChutes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetChutesResponse" message="tns:IAMSIntegrationService_GetChutes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGates">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetGates" message="tns:IAMSIntegrationService_GetGates_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetGatesResponse" message="tns:IAMSIntegrationService_GetGates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLounges">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetLounges" message="tns:IAMSIntegrationService_GetLounges_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetLoungesResponse" message="tns:IAMSIntegrationService_GetLounges_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicles">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetVehicles" message="tns:IAMSIntegrationService_GetVehicles_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetVehiclesResponse" message="tns:IAMSIntegrationService_GetVehicles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAircraftCustomFields">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftCustomFields" message="tns:IAMSIntegrationService_GetAircraftCustomFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftCustomFieldsResponse" message="tns:IAMSIntegrationService_GetAircraftCustomFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAircraftTypeCustomFields">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftTypeCustomFields" message="tns:IAMSIntegrationService_GetAircraftTypeCustomFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftTypeCustomFieldsResponse" message="tns:IAMSIntegrationService_GetAircraftTypeCustomFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAirlineCustomFields">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirlineCustomFields" message="tns:IAMSIntegrationService_GetAirlineCustomFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirlineCustomFieldsResponse" message="tns:IAMSIntegrationService_GetAirlineCustomFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAirportCustomFields">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirportCustomFields" message="tns:IAMSIntegrationService_GetAirportCustomFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirportCustomFieldsResponse" message="tns:IAMSIntegrationService_GetAirportCustomFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteCustomFields">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetRouteCustomFields" message="tns:IAMSIntegrationService_GetRouteCustomFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetRouteCustomFieldsResponse" message="tns:IAMSIntegrationService_GetRouteCustomFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArrivalFlightCustomFields">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalFlightCustomFields" message="tns:IAMSIntegrationService_GetArrivalFlightCustomFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalFlightCustomFieldsResponse" message="tns:IAMSIntegrationService_GetArrivalFlightCustomFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartureFlightCustomFields">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetDepartureFlightCustomFields" message="tns:IAMSIntegrationService_GetDepartureFlightCustomFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetDepartureFlightCustomFieldsResponse" message="tns:IAMSIntegrationService_GetDepartureFlightCustomFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementCustomFields">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetMovementCustomFields" message="tns:IAMSIntegrationService_GetMovementCustomFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetMovementCustomFieldsResponse" message="tns:IAMSIntegrationService_GetMovementCustomFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlight">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetFlight" message="tns:IAMSIntegrationService_GetFlight_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetFlightResponse" message="tns:IAMSIntegrationService_GetFlight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonCheckInAllocationShapes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCommonCheckInAllocationShapes" message="tns:IAMSIntegrationService_GetCommonCheckInAllocationShapes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCommonCheckInAllocationShapesResponse" message="tns:IAMSIntegrationService_GetCommonCheckInAllocationShapes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonArrivalDeskAllocationShapes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCommonArrivalDeskAllocationShapes" message="tns:IAMSIntegrationService_GetCommonArrivalDeskAllocationShapes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCommonArrivalDeskAllocationShapesResponse" message="tns:IAMSIntegrationService_GetCommonArrivalDeskAllocationShapes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFlight">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateFlight" message="tns:IAMSIntegrationService_CreateFlight_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateFlightResponse" message="tns:IAMSIntegrationService_CreateFlight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFlightExtended">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateFlightExtended" message="tns:IAMSIntegrationService_CreateFlightExtended_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateFlightExtendedResponse" message="tns:IAMSIntegrationService_CreateFlightExtended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFlightWithCodeShares">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateFlightWithCodeShares" message="tns:IAMSIntegrationService_CreateFlightWithCodeShares_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateFlightWithCodeSharesResponse" message="tns:IAMSIntegrationService_CreateFlightWithCodeShares_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlight">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteFlight" message="tns:IAMSIntegrationService_DeleteFlight_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteFlightResponse" message="tns:IAMSIntegrationService_DeleteFlight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlight">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateFlight" message="tns:IAMSIntegrationService_UpdateFlight_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateFlightResponse" message="tns:IAMSIntegrationService_UpdateFlight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlightExtended">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateFlightExtended" message="tns:IAMSIntegrationService_UpdateFlightExtended_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateFlightExtendedResponse" message="tns:IAMSIntegrationService_UpdateFlightExtended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlightWithCodeShares">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateFlightWithCodeShares" message="tns:IAMSIntegrationService_UpdateFlightWithCodeShares_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateFlightWithCodeSharesResponse" message="tns:IAMSIntegrationService_UpdateFlightWithCodeShares_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkFlight">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UnlinkFlight" message="tns:IAMSIntegrationService_UnlinkFlight_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UnlinkFlightResponse" message="tns:IAMSIntegrationService_UnlinkFlight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkFlights">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/LinkFlights" message="tns:IAMSIntegrationService_LinkFlights_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/LinkFlightsResponse" message="tns:IAMSIntegrationService_LinkFlights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStandDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateStandDowngrade" message="tns:IAMSIntegrationService_CreateStandDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateStandDowngradeResponse" message="tns:IAMSIntegrationService_CreateStandDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStandDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateStandDowngrade" message="tns:IAMSIntegrationService_UpdateStandDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateStandDowngradeResponse" message="tns:IAMSIntegrationService_UpdateStandDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStandDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteStandDowngrade" message="tns:IAMSIntegrationService_DeleteStandDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteStandDowngradeResponse" message="tns:IAMSIntegrationService_DeleteStandDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStandDowngrades">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetStandDowngrades" message="tns:IAMSIntegrationService_GetStandDowngrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetStandDowngradesResponse" message="tns:IAMSIntegrationService_GetStandDowngrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStandDowngradeTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetStandDowngradeTypes" message="tns:IAMSIntegrationService_GetStandDowngradeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetStandDowngradeTypesResponse" message="tns:IAMSIntegrationService_GetStandDowngradeTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGateDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateGateDowngrade" message="tns:IAMSIntegrationService_CreateGateDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateGateDowngradeResponse" message="tns:IAMSIntegrationService_CreateGateDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGateDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateGateDowngrade" message="tns:IAMSIntegrationService_UpdateGateDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateGateDowngradeResponse" message="tns:IAMSIntegrationService_UpdateGateDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGateDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteGateDowngrade" message="tns:IAMSIntegrationService_DeleteGateDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteGateDowngradeResponse" message="tns:IAMSIntegrationService_DeleteGateDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGateDowngrades">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetGateDowngrades" message="tns:IAMSIntegrationService_GetGateDowngrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetGateDowngradesResponse" message="tns:IAMSIntegrationService_GetGateDowngrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGateDowngradeTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetGateDowngradeTypes" message="tns:IAMSIntegrationService_GetGateDowngradeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetGateDowngradeTypesResponse" message="tns:IAMSIntegrationService_GetGateDowngradeTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateChuteDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateChuteDowngrade" message="tns:IAMSIntegrationService_CreateChuteDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateChuteDowngradeResponse" message="tns:IAMSIntegrationService_CreateChuteDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChuteDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateChuteDowngrade" message="tns:IAMSIntegrationService_UpdateChuteDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateChuteDowngradeResponse" message="tns:IAMSIntegrationService_UpdateChuteDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChuteDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteChuteDowngrade" message="tns:IAMSIntegrationService_DeleteChuteDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteChuteDowngradeResponse" message="tns:IAMSIntegrationService_DeleteChuteDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChuteDowngrades">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetChuteDowngrades" message="tns:IAMSIntegrationService_GetChuteDowngrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetChuteDowngradesResponse" message="tns:IAMSIntegrationService_GetChuteDowngrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChuteDowngradeTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetChuteDowngradeTypes" message="tns:IAMSIntegrationService_GetChuteDowngradeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetChuteDowngradeTypesResponse" message="tns:IAMSIntegrationService_GetChuteDowngradeTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCheckInDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateCheckInDowngrade" message="tns:IAMSIntegrationService_CreateCheckInDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateCheckInDowngradeResponse" message="tns:IAMSIntegrationService_CreateCheckInDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckInDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateCheckInDowngrade" message="tns:IAMSIntegrationService_UpdateCheckInDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateCheckInDowngradeResponse" message="tns:IAMSIntegrationService_UpdateCheckInDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCheckInDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteCheckInDowngrade" message="tns:IAMSIntegrationService_DeleteCheckInDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteCheckInDowngradeResponse" message="tns:IAMSIntegrationService_DeleteCheckInDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckInDowngrades">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCheckInDowngrades" message="tns:IAMSIntegrationService_GetCheckInDowngrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCheckInDowngradesResponse" message="tns:IAMSIntegrationService_GetCheckInDowngrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckInDowngradeTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCheckInDowngradeTypes" message="tns:IAMSIntegrationService_GetCheckInDowngradeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCheckInDowngradeTypesResponse" message="tns:IAMSIntegrationService_GetCheckInDowngradeTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateArrivalDeskDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateArrivalDeskDowngrade" message="tns:IAMSIntegrationService_CreateArrivalDeskDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateArrivalDeskDowngradeResponse" message="tns:IAMSIntegrationService_CreateArrivalDeskDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArrivalDeskDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateArrivalDeskDowngrade" message="tns:IAMSIntegrationService_UpdateArrivalDeskDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateArrivalDeskDowngradeResponse" message="tns:IAMSIntegrationService_UpdateArrivalDeskDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArrivalDeskDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteArrivalDeskDowngrade" message="tns:IAMSIntegrationService_DeleteArrivalDeskDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteArrivalDeskDowngradeResponse" message="tns:IAMSIntegrationService_DeleteArrivalDeskDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArrivalDeskDowngrades">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalDeskDowngrades" message="tns:IAMSIntegrationService_GetArrivalDeskDowngrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalDeskDowngradesResponse" message="tns:IAMSIntegrationService_GetArrivalDeskDowngrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArrivalDeskDowngradeTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalDeskDowngradeTypes" message="tns:IAMSIntegrationService_GetArrivalDeskDowngradeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalDeskDowngradeTypesResponse" message="tns:IAMSIntegrationService_GetArrivalDeskDowngradeTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLoungeDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateLoungeDowngrade" message="tns:IAMSIntegrationService_CreateLoungeDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateLoungeDowngradeResponse" message="tns:IAMSIntegrationService_CreateLoungeDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoungeDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateLoungeDowngrade" message="tns:IAMSIntegrationService_UpdateLoungeDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateLoungeDowngradeResponse" message="tns:IAMSIntegrationService_UpdateLoungeDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLoungeDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteLoungeDowngrade" message="tns:IAMSIntegrationService_DeleteLoungeDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteLoungeDowngradeResponse" message="tns:IAMSIntegrationService_DeleteLoungeDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoungeDowngrades">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetLoungeDowngrades" message="tns:IAMSIntegrationService_GetLoungeDowngrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetLoungeDowngradesResponse" message="tns:IAMSIntegrationService_GetLoungeDowngrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoungeDowngradeTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetLoungeDowngradeTypes" message="tns:IAMSIntegrationService_GetLoungeDowngradeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetLoungeDowngradeTypesResponse" message="tns:IAMSIntegrationService_GetLoungeDowngradeTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVehicleDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateVehicleDowngrade" message="tns:IAMSIntegrationService_CreateVehicleDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateVehicleDowngradeResponse" message="tns:IAMSIntegrationService_CreateVehicleDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateVehicleDowngrade" message="tns:IAMSIntegrationService_UpdateVehicleDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateVehicleDowngradeResponse" message="tns:IAMSIntegrationService_UpdateVehicleDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteVehicleDowngrade" message="tns:IAMSIntegrationService_DeleteVehicleDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteVehicleDowngradeResponse" message="tns:IAMSIntegrationService_DeleteVehicleDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleDowngrades">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetVehicleDowngrades" message="tns:IAMSIntegrationService_GetVehicleDowngrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetVehicleDowngradesResponse" message="tns:IAMSIntegrationService_GetVehicleDowngrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleDowngradeTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetVehicleDowngradeTypes" message="tns:IAMSIntegrationService_GetVehicleDowngradeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetVehicleDowngradeTypesResponse" message="tns:IAMSIntegrationService_GetVehicleDowngradeTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCarouselDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateCarouselDowngrade" message="tns:IAMSIntegrationService_CreateCarouselDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateCarouselDowngradeResponse" message="tns:IAMSIntegrationService_CreateCarouselDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCarouselDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateCarouselDowngrade" message="tns:IAMSIntegrationService_UpdateCarouselDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateCarouselDowngradeResponse" message="tns:IAMSIntegrationService_UpdateCarouselDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarouselDowngrade">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteCarouselDowngrade" message="tns:IAMSIntegrationService_DeleteCarouselDowngrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteCarouselDowngradeResponse" message="tns:IAMSIntegrationService_DeleteCarouselDowngrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarouselDowngrades">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCarouselDowngrades" message="tns:IAMSIntegrationService_GetCarouselDowngrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCarouselDowngradesResponse" message="tns:IAMSIntegrationService_GetCarouselDowngrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarouselDowngradeTypes">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCarouselDowngradeTypes" message="tns:IAMSIntegrationService_GetCarouselDowngradeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCarouselDowngradeTypesResponse" message="tns:IAMSIntegrationService_GetCarouselDowngradeTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSlotRequests">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetSlotRequests" message="tns:IAMSIntegrationService_GetSlotRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetSlotRequestsResponse" message="tns:IAMSIntegrationService_GetSlotRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSlotRequestsForAirline">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetSlotRequestsForAirline" message="tns:IAMSIntegrationService_GetSlotRequestsForAirline_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetSlotRequestsForAirlineResponse" message="tns:IAMSIntegrationService_GetSlotRequestsForAirline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSlotRequest">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateSlotRequest" message="tns:IAMSIntegrationService_CreateSlotRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateSlotRequestResponse" message="tns:IAMSIntegrationService_CreateSlotRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSlotRequestInCompliance">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateSlotRequestInCompliance" message="tns:IAMSIntegrationService_CreateSlotRequestInCompliance_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateSlotRequestInComplianceResponse" message="tns:IAMSIntegrationService_CreateSlotRequestInCompliance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSlotRequest">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateSlotRequest" message="tns:IAMSIntegrationService_UpdateSlotRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateSlotRequestResponse" message="tns:IAMSIntegrationService_UpdateSlotRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SplitSlotRequest">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/SplitSlotRequest" message="tns:IAMSIntegrationService_SplitSlotRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/SplitSlotRequestResponse" message="tns:IAMSIntegrationService_SplitSlotRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSlotRequest">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteSlotRequest" message="tns:IAMSIntegrationService_DeleteSlotRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteSlotRequestResponse" message="tns:IAMSIntegrationService_DeleteSlotRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSlotRequestStatus">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateSlotRequestStatus" message="tns:IAMSIntegrationService_UpdateSlotRequestStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateSlotRequestStatusResponse" message="tns:IAMSIntegrationService_UpdateSlotRequestStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSlotRequestStatusHistory">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetSlotRequestStatusHistory" message="tns:IAMSIntegrationService_GetSlotRequestStatusHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetSlotRequestStatusHistoryResponse" message="tns:IAMSIntegrationService_GetSlotRequestStatusHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableHomeAirportsForLogin">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAvailableHomeAirportsForLogin" message="tns:IAMSIntegrationService_GetAvailableHomeAirportsForLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAvailableHomeAirportsForLoginResponse" message="tns:IAMSIntegrationService_GetAvailableHomeAirportsForLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LockFlight">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/LockFlight" message="tns:IAMSIntegrationService_LockFlight_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/LockFlightResponse" message="tns:IAMSIntegrationService_LockFlight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockFlight">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UnlockFlight" message="tns:IAMSIntegrationService_UnlockFlight_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UnlockFlightResponse" message="tns:IAMSIntegrationService_UnlockFlight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventDefinitions">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetEventDefinitions" message="tns:IAMSIntegrationService_GetEventDefinitions_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetEventDefinitionsResponse" message="tns:IAMSIntegrationService_GetEventDefinitions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDefinitions">
+      <wsdl:input wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetActivityDefinitions" message="tns:IAMSIntegrationService_GetActivityDefinitions_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetActivityDefinitionsResponse" message="tns:IAMSIntegrationService_GetActivityDefinitions_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAMSIntegrationService" type="tns:IAMSIntegrationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logoff">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/Logoff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWebAccessRights">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetUserWebAccessRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlights">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetFlights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementsOverlappingWithPeriod">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetMovementsOverlappingWithPeriod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirports">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAircrafts">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircrafts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAircraftTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirlines">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirlines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomsTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCustomsTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetRoutes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreas">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAreas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStands">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetStands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarousels">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCarousels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckIns">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCheckIns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArrivalDesks">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalDesks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChutes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetChutes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGates">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetGates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLounges">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetLounges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicles">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetVehicles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAircraftCustomFields">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAircraftTypeCustomFields">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAircraftTypeCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirlineCustomFields">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirlineCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirportCustomFields">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAirportCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteCustomFields">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetRouteCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArrivalFlightCustomFields">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalFlightCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartureFlightCustomFields">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetDepartureFlightCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementCustomFields">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetMovementCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlight">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetFlight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonCheckInAllocationShapes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCommonCheckInAllocationShapes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonArrivalDeskAllocationShapes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCommonArrivalDeskAllocationShapes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFlight">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateFlight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFlightExtended">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateFlightExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFlightWithCodeShares">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateFlightWithCodeShares" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlight">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteFlight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlight">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateFlight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlightExtended">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateFlightExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlightWithCodeShares">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateFlightWithCodeShares" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkFlight">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UnlinkFlight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkFlights">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/LinkFlights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStandDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateStandDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStandDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateStandDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStandDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteStandDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStandDowngrades">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetStandDowngrades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStandDowngradeTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetStandDowngradeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGateDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateGateDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGateDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateGateDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGateDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteGateDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGateDowngrades">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetGateDowngrades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGateDowngradeTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetGateDowngradeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateChuteDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateChuteDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChuteDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateChuteDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChuteDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteChuteDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChuteDowngrades">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetChuteDowngrades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChuteDowngradeTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetChuteDowngradeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCheckInDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateCheckInDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckInDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateCheckInDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCheckInDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteCheckInDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckInDowngrades">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCheckInDowngrades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckInDowngradeTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCheckInDowngradeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateArrivalDeskDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateArrivalDeskDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArrivalDeskDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateArrivalDeskDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArrivalDeskDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteArrivalDeskDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArrivalDeskDowngrades">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalDeskDowngrades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArrivalDeskDowngradeTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetArrivalDeskDowngradeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLoungeDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateLoungeDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoungeDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateLoungeDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLoungeDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteLoungeDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoungeDowngrades">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetLoungeDowngrades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoungeDowngradeTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetLoungeDowngradeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVehicleDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateVehicleDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateVehicleDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteVehicleDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleDowngrades">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetVehicleDowngrades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleDowngradeTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetVehicleDowngradeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCarouselDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateCarouselDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCarouselDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateCarouselDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarouselDowngrade">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteCarouselDowngrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarouselDowngrades">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCarouselDowngrades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarouselDowngradeTypes">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetCarouselDowngradeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSlotRequests">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetSlotRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSlotRequestsForAirline">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetSlotRequestsForAirline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSlotRequest">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateSlotRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSlotRequestInCompliance">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/CreateSlotRequestInCompliance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSlotRequest">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateSlotRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SplitSlotRequest">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/SplitSlotRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSlotRequest">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/DeleteSlotRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSlotRequestStatus">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UpdateSlotRequestStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSlotRequestStatusHistory">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetSlotRequestStatusHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableHomeAirportsForLogin">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetAvailableHomeAirportsForLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockFlight">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/LockFlight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockFlight">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/UnlockFlight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventDefinitions">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetEventDefinitions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDefinitions">
+      <soap:operation soapAction="http://www.sita.aero/ams6-xml-api-webservice/IAMSIntegrationService/GetActivityDefinitions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SITAAMSIntegrationService">
+    <wsdl:port name="BasicHttpBinding_IAMSIntegrationService" binding="tns:BasicHttpBinding_IAMSIntegrationService">
+      <soap:address location="http://tse2-ams-apv/SITAAMSIntegrationService/v2/SITAAMSIntegrationService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
