@@ -16,7 +16,7 @@ namespace EmployesTableApp
     {
         SqlConnection connection, connection2;
         SqlCommand command, command2;
-        string conStr = @"Data Source=MACVO-PC\SQLEXPRESS;Initial Catalog=eAirlines;User ID=sa;Password=Comnet@6323";
+        string conStr = @"Data Source=ec2-13-58-26-239.us-east-2.compute.amazonaws.com;Initial Catalog=eAirlines;User ID=sa;Password=Comnet@6323";
         string conStr2 = "";
 
         private void ConnectTo(String Tasil)
@@ -54,6 +54,45 @@ namespace EmployesTableApp
                 input = "";
             }
             return input;
+        }
+
+        internal void Fillolflight(ObservableCollection<Flight> oflight)
+        {
+            Flight flight = new Flight();
+            try
+            {
+                //if (JolID == 1)
+                command.CommandText = "SELECT * FROM ORDERS";
+                command.CommandType = CommandType.Text;
+
+                connection.Open();
+
+                SqlDataReader maginasiBar = command.ExecuteReader();
+                
+                if (maginasiBar.Read())
+                {
+                    connection.Close();
+                    flight.FlightNumber = maginasiBar["flightNumber"].ToString();
+                    flight.ScheduledTime = Convert.ToDateTime(maginasiBar["scheduledTime"].ToString());
+                    //flight.AirlineDesignatorIATA
+                    oflight.Add(flight);
+
+                }
+                }
+            catch (Exception ex)
+            {
+                WriteMyLOG(ex.ToString());
+                throw;
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+
+
+            }
         }
 
         public string LoadFFMBlank(string TypeMessage)
@@ -204,7 +243,7 @@ namespace EmployesTableApp
                         DateTime buferdata;
                         if (IsDepOrArr == 1)
                         {
-                            Sdhed = dr["ACTUAL"].ToString().Equals("") ? dr["scheduledTime"].ToString() : dr["ACTUAL"].ToString();
+                            //Sdhed =c.Equals("") ? dr["scheduledTime"].ToString() : dr["ACTUAL"].ToString();
                             dataUshipKelu = Convert.ToDateTime(Sdhed);
                             dataKeluSchedule = Convert.ToDateTime(dr["scheduledTime"].ToString());
                             //Sdhed = dataUshipKelu.Hour*100 + dataUshipKelu.Minute; //hhmm

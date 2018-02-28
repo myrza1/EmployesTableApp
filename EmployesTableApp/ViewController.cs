@@ -27,13 +27,15 @@ namespace EmployesTableApp
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
 
-            TSEService.SITAAMSIntegrationService proxy = new TSEService.SITAAMSIntegrationService();
-            XmlElement root = proxy.GetFlights("d2ad08e1-8e92-46e5-9788-1e4e56457c18", DateTime.Today, true, DateTime.Today.AddHours(5), true, "TSE", TSEService.AirportIdentifierType.IATACode, true);
-            XElement rootX = XmlElementToXelement(root);
-            Functional.getFlights(rootX);
-            //Functional.ArrivalFligts
-            oflight = Functional.ArrivalFligts;
+            //TSEService.SITAAMSIntegrationService proxy = new TSEService.SITAAMSIntegrationService();
+            //XmlElement root = proxy.GetFlights("d2ad08e1-8e92-46e5-9788-1e4e56457c18", DateTime.Today, true, DateTime.Today.AddHours(5), true, "TSE", TSEService.AirportIdentifierType.IATACode, true);
+            //XElement rootX = XmlElementToXelement(root);
+            //Functional.getFlights(rootX);
+            ////Functional.ArrivalFligts
+            //oflight = Functional.ArrivalFligts;
 
+            Broker br = new Broker();
+            br.Fillolflight(oflight);
 
             var flights = new List<Flight>();
 
