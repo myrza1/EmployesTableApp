@@ -20,12 +20,14 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>x86_64</MtouchArch>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Distribution: OLZHAS MUKANOV (P5ZE52APB4)</CodesignKey>
     <CodesignProvision>EmployesTableApp Profile</CodesignProvision>
     <MtouchProfiling>false</MtouchProfiling>
     <MtouchSdkVersion>11.2</MtouchSdkVersion>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <MtouchFastDev>true</MtouchFastDev>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -48,12 +50,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignKey>iPhone Developer: OLZHAS MUKANOV (TX2A82YWQE)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFastDev>false</MtouchFastDev>
     <CodesignProvision>VS: com.oat.EmployesTableApp Development</CodesignProvision>
+    <MtouchSdkVersion>11.2</MtouchSdkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -62,14 +65,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchArch>ARMv7s, ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer: OLZHAS MUKANOV (TX2A82YWQE)</CodesignKey>
     <MtouchFastDev>false</MtouchFastDev>
     <MtouchSdkVersion>11.2</MtouchSdkVersion>
-    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
     <CodesignProvision>VS: com.oat.EmployesTableApp Development</CodesignProvision>
+    <MtouchLink>None</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -79,7 +83,6 @@
     <Compile Include="Broker.cs" />
     <Compile Include="Data\Functional.cs" />
     <Compile Include="Flight.cs" />
-    <Compile Include="Flights.cs" />
     <Compile Include="FlightsCell.cs" />
     <Compile Include="FlightsCell.designer.cs">
       <DependentUpon>FlightsCell.cs</DependentUpon>
@@ -114,12 +117,50 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\TSEService\SITAAMSIntegrationService.wsdl" />
+    <Compile Include="ArrivalsViewController.cs" />
+    <Compile Include="ArrivalsViewController.designer.cs">
+      <DependentUpon>ArrivalsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepartureViewController.cs" />
+    <Compile Include="DepartureViewController.designer.cs">
+      <DependentUpon>DepartureViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArrivalDetailViewController.cs" />
+    <Compile Include="ArrivalDetailViewController.designer.cs">
+      <DependentUpon>ArrivalDetailViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderAirrvalsCell.cs" />
+    <Compile Include="OrderAirrvalsCell.designer.cs">
+      <DependentUpon>OrderAirrvalsCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Order.cs" />
+    <Compile Include="Domain\Flights.cs" />
+    <Compile Include="OrdersTVS.cs" />
+    <Compile Include="OrderEditCell.cs" />
+    <Compile Include="OrderEditCell.designer.cs">
+      <DependentUpon>OrderEditCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetailsTVS.cs" />
+    <Compile Include="DetailOrderArrivalController.cs" />
+    <Compile Include="DetailOrderArrivalController.designer.cs">
+      <DependentUpon>DetailOrderArrivalController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatusViewModel.cs" />
+    <None Include="Web References\RefServiceTSE\Service1.wsdl" />
+    <None Include="Web References\RefServiceTSE\Service1.xsd" />
+    <None Include="Web References\RefServiceTSE\Service10.xsd" />
+    <None Include="Web References\RefServiceTSE\Service11.xsd" />
+    <None Include="Web References\RefServiceTSE\Service12.xsd" />
+    <None Include="Web References\RefServiceTSE\Service1.disco" />
+    <None Include="Web References\RefServiceTSE\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Compile Include="Web References\RefServiceTSE\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewController.cs" />
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
   </ItemGroup>
@@ -152,6 +193,11 @@
       </CachedAppSettingsObjectName>
       <CachedSettingsPropName>
       </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ec2-13-58-26-239.us-east-2.compute.amazonaws.com/ServiceTSE/service1.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RefServiceTSE</RelPath>
+      <UpdateFromURL>http://ec2-13-58-26-239.us-east-2.compute.amazonaws.com/ServiceTSE/service1.svc</UpdateFromURL>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +252,9 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ItunesArtwork%402x.png">
       <Visible>false</Visible>
     </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

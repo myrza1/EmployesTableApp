@@ -16,7 +16,8 @@ namespace EmployesTableApp
     {
         SqlConnection connection, connection2;
         SqlCommand command, command2;
-        string conStr = @"Data Source=ec2-13-58-26-239.us-east-2.compute.amazonaws.com;Initial Catalog=eAirlines;User ID=sa;Password=Comnet@6323";
+        string conStr = "Data Source=192.168.17.42;Initial Catalog=eAirlines;User ID=sa;Password=P@ssw0rd1";
+        // ec2-13-58-26-239.us-east-2.compute.amazonaws.com
         string conStr2 = "";
 
         private void ConnectTo(String Tasil)
@@ -27,6 +28,9 @@ namespace EmployesTableApp
 
             command = connection.CreateCommand();
             command2 = connection2.CreateCommand();
+
+            //connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\database\Database1.mdb;Persist Security Info=False");
+            //connection = new OleDbConnection(@"Provider=SQLOLEDB.1;Password=Comnet8273;Persist Security Info=False;User ID=sa;Initial Catalog=ECLIPSXDB;Data Source=10.10.10.2");
 
         }
 
@@ -63,11 +67,11 @@ namespace EmployesTableApp
             {
                 //if (JolID == 1)
                 command.CommandText = "SELECT * FROM ORDERS";
-                command.CommandType = CommandType.Text;
+                //command.CommandType = CommandType.Text;
 
                 connection.Open();
 
-                SqlDataReader maginasiBar = command.ExecuteReader();
+                SqlDataReader maginasiBar = command.ExecuteReader(CommandBehavior.CloseConnection);
                 
                 if (maginasiBar.Read())
                 {

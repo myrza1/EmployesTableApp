@@ -22,9 +22,12 @@ namespace EmployesTableApp
 
         }
 
+
         internal void LikeCell()
         {
             FlightNumber.Text += " (like)";
         }
+
+
     }
 }

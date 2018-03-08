@@ -30,5 +30,12 @@ namespace EmployesTableApp
         {
             return flights.Count;
         }
+
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
+            var flight = flights[indexPath.Row];
+        }
+
+      
     }
 }

@@ -18,6 +18,7 @@ namespace EmployesTableApp.Data
         {
 
             TSEService.SITAAMSIntegrationService proxy = new TSEService.SITAAMSIntegrationService();
+            RefServiceTSE.Service1 proxy1 = new RefServiceTSE.Service1();
 
 
             return proxy;

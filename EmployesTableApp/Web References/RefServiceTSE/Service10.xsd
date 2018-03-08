@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Domain" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ec2-13-58-26-239.us-east-2.compute.amazonaws.com/ServiceTSE/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfFlight">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Flight" nillable="true" type="tns:Flight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlight" nillable="true" type="tns:ArrayOfFlight" />
+  <xs:complexType name="Flight">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activity" nillable="true" type="tns:ArrayOfFlight.structActivity" />
+      <xs:element minOccurs="0" name="ActivityEventExist" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AircraftRegistration" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AircraftType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AirlineDesignatorIATA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AirlineDesignatorICAO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AppLinkedFlightID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Arr_Qualifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Capt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Crew" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataLocked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EET" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Event" nillable="true" type="tns:ArrayOfFlight.structEvent" />
+      <xs:element minOccurs="0" name="FaktFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightKind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightUniqueID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkedFlight" type="tns:Flight.flightID" />
+      <xs:element minOccurs="0" name="LinkedFlightID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MLW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MTOWtrip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MZFW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NeedServices" nillable="true" type="tns:ArrayOfFlight.flightServiceNeed" />
+      <xs:element minOccurs="0" name="RMPFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ramp_id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduledDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ScheduledTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Services" nillable="true" type="tns:ArrayOfFlight.flihghtService" />
+      <xs:element minOccurs="0" name="TAXIFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TRIPFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TripInfoChanged" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TripInfoChangedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="arr_flight_type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="filght_from" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="filght_to" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Flight" nillable="true" type="tns:Flight" />
+  <xs:complexType name="ArrayOfFlight.structActivity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Flight.structActivity" type="tns:Flight.structActivity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlight.structActivity" nillable="true" type="tns:ArrayOfFlight.structActivity" />
+  <xs:complexType name="Flight.structActivity">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActualEndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ActualStartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CalculatedEndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CalculatedStartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EstimatedEndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EstimatedStartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MostConfidentEndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MostConfidentStartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ScheduledEndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ScheduledStartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Flight.structActivity" nillable="true" type="tns:Flight.structActivity" />
+  <xs:complexType name="ArrayOfFlight.structEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Flight.structEvent" type="tns:Flight.structEvent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlight.structEvent" nillable="true" type="tns:ArrayOfFlight.structEvent" />
+  <xs:complexType name="Flight.structEvent">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActualTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CalculatedTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EstimatedTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MostConfidentTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ScheduledTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Flight.structEvent" nillable="true" type="tns:Flight.structEvent" />
+  <xs:complexType name="Flight.flightID">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AircraftType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Capt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Crew" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EET" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FaktFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MLW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MTOWtrip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MZFW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RMPFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TAXIFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TRIPFUEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TripInfoChanged" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TripInfoChangedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="airlineDesignatorIATA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="airlineDesignatorICAO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="filght_from" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="flightKind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="flightNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="flight_to" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="scheduledDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Flight.flightID" nillable="true" type="tns:Flight.flightID" />
+  <xs:complexType name="ArrayOfFlight.flightServiceNeed">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Flight.flightServiceNeed" type="tns:Flight.flightServiceNeed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlight.flightServiceNeed" nillable="true" type="tns:ArrayOfFlight.flightServiceNeed" />
+  <xs:complexType name="Flight.flightServiceNeed">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="value" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Flight.flightServiceNeed" nillable="true" type="tns:Flight.flightServiceNeed" />
+  <xs:complexType name="ArrayOfFlight.flihghtService">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Flight.flihghtService" type="tns:Flight.flihghtService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlight.flihghtService" nillable="true" type="tns:ArrayOfFlight.flihghtService" />
+  <xs:complexType name="Flight.flihghtService">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tablevalue" nillable="true" type="tns:ArrayOfFlight.TableValue" />
+      <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Flight.flihghtService" nillable="true" type="tns:Flight.flihghtService" />
+  <xs:complexType name="ArrayOfFlight.TableValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Flight.TableValue" type="tns:Flight.TableValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlight.TableValue" nillable="true" type="tns:ArrayOfFlight.TableValue" />
+  <xs:complexType name="Flight.TableValue">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date_begin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_end" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_entered" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="desnity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="doc_no" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="quantity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="refueler_num" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="type_service" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="value" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Flight.TableValue" nillable="true" type="tns:Flight.TableValue" />
+  <xs:complexType name="ArrayOfOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="tns:Order" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrder" nillable="true" type="tns:ArrayOfOrder" />
+  <xs:complexType name="Order">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Density" type="xs:float" />
+      <xs:element minOccurs="0" name="Doc_no" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="End_time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Flight_id" type="xs:int" />
+      <xs:element minOccurs="0" name="Liters" type="xs:float" />
+      <xs:element minOccurs="0" name="Mani" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Start_time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+</xs:schema>
