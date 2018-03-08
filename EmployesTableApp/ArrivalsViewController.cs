@@ -63,7 +63,7 @@ namespace EmployesTableApp
             NSIndexPath indexCell = FlightTableView.IndexPathForSelectedRow;
 
             arrivalsDetailsViewController.FlightNumber = flights[indexCell.Row].FlightNumber;
-            arrivalsDetailsViewController.Flight_ID = flights[indexCell.Row].FlightUniqueID;
+            arrivalsDetailsViewController.Flight_ID = Convert.ToInt32(flights[indexCell.Row].FlightUniqueID);
 
            
         }

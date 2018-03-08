@@ -19,7 +19,7 @@ namespace EmployesTableApp
             set;
         }
 
-        public string Flight_ID
+        public int Flight_ID
         {
             get;
             set;
@@ -84,8 +84,8 @@ namespace EmployesTableApp
         partial void CreateOrder(UIBarButtonItem sender)
         {
             
-            var newFlightID = orders[orders.Count - 1].Flight_id + 1;
-            var newOrder = new Order { Flight_id = newFlightID };
+            //int newFlightID = orders[orders.Count - 1].Flight_id + 1;
+            Order newOrder = new Order { Flight_id = Flight_ID };
             var detail = Storyboard.InstantiateViewController("detail") as DetailOrderArrivalController;
 
 
