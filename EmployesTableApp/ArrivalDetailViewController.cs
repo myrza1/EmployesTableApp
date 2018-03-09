@@ -54,10 +54,6 @@ namespace EmployesTableApp
                 orders.Add(order);
             }
 
-
-
-           
-
         }
 
         public override void ViewWillAppear(bool animated)

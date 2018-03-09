@@ -59,10 +59,10 @@ namespace EmployesTableApp
 
             if (OrderName != null){
                 NameField.Text = OrderName;
-                Flight_ID = Flight_ID;
+                
                 DoneSwich.On = OrderStatus.Length > 4 ? true : false;
             }
-           
+            Flight_ID = Flight_ID;
         }
     }
 
