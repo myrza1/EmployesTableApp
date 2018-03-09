@@ -16,7 +16,8 @@ namespace EmployesTableApp
         {
             
             currentOrder.Name = NameField.Text;
-            currentOrder.Status = "dddd";
+        //    currentOrder.Status = OrderStatus;
+            currentOrder.Status = DoneSwich.On ? "Encluded" : "No";
             Delegate.SaveTask(currentOrder);
         }
 
@@ -56,14 +57,14 @@ namespace EmployesTableApp
         {
             base.ViewDidLoad();
 
-            var statusLists = new List<string>{
-                "Басталды","Аяқталды"
-            };
-
-            StatusPicker.Model = new StatusViewModel(statusLists);
-
-            NameField.Text = OrderName;
-            Flight_ID = Flight_ID;
+            if (OrderName != null){
+                NameField.Text = OrderName;
+                Flight_ID = Flight_ID;
+                DoneSwich.On = OrderStatus.Length > 4 ? true : false;
+            }
+           
         }
     }
+
+
 }

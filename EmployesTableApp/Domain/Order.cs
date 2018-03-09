@@ -12,6 +12,7 @@ namespace EmployesTableApp.Domain
         private float liters;
         private float density;
         private int flight_id;
+        private bool statusDone;
 
         public string Status
         {

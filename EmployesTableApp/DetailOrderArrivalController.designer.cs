@@ -20,15 +20,15 @@ namespace EmployesTableApp
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISwitch DoneSwich { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField NameField { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton SaveButton { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIPickerView StatusPicker { get; set; }
 
         [Action ("DeteleOrder:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -45,6 +45,11 @@ namespace EmployesTableApp
                 DeleteButton = null;
             }
 
+            if (DoneSwich != null) {
+                DoneSwich.Dispose ();
+                DoneSwich = null;
+            }
+
             if (NameField != null) {
                 NameField.Dispose ();
                 NameField = null;
@@ -53,11 +58,6 @@ namespace EmployesTableApp
             if (SaveButton != null) {
                 SaveButton.Dispose ();
                 SaveButton = null;
-            }
-
-            if (StatusPicker != null) {
-                StatusPicker.Dispose ();
-                StatusPicker = null;
             }
         }
     }

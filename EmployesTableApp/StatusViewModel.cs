@@ -7,13 +7,14 @@ namespace EmployesTableApp
     internal class StatusViewModel : UIPickerViewModel
     {
         private List<string> statusLists;
-
+        private string orderStatus;
         public string SelectedStatus { get; private set; }
 
 
-        public StatusViewModel(List<string> statusLists)
+        public StatusViewModel(List<string> statusLists,string orderStatus)
         {
             this.statusLists = statusLists;
+            this.orderStatus = orderStatus;
         }
 
         public override System.nint GetRowsInComponent(UIPickerView pickerView, System.nint component)
@@ -34,7 +35,7 @@ namespace EmployesTableApp
         public override void Selected(UIPickerView pickerView, nint row, nint component)
         {
             var status = statusLists[(int)row];
-            SelectedStatus = status;
+            orderStatus = status;
         }
     }
 }

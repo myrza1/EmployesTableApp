@@ -78,6 +78,8 @@ namespace EmployesTableApp
             //OrderArrivalTableVIew.Source = new OrdersTVS(orders);
             orderDetailController.OrderName = orders[indexCell.Row].Name;
             orderDetailController.Flight_ID = orders[indexCell.Row].Flight_id;
+            orderDetailController.OrderStatus = orders[indexCell.Row].Status;
+
             orderDetailController.SetTask(this,orders[indexCell.Row]);
         }
 
