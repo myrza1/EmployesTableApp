@@ -24,7 +24,23 @@ namespace EmployesTableApp
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField ffff { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField NameField { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableViewCell ordername { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIPickerView OrderNamePicker { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView OrderTableView { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -50,9 +66,29 @@ namespace EmployesTableApp
                 DoneSwich = null;
             }
 
+            if (ffff != null) {
+                ffff.Dispose ();
+                ffff = null;
+            }
+
             if (NameField != null) {
                 NameField.Dispose ();
                 NameField = null;
+            }
+
+            if (ordername != null) {
+                ordername.Dispose ();
+                ordername = null;
+            }
+
+            if (OrderNamePicker != null) {
+                OrderNamePicker.Dispose ();
+                OrderNamePicker = null;
+            }
+
+            if (OrderTableView != null) {
+                OrderTableView.Dispose ();
+                OrderTableView = null;
             }
 
             if (SaveButton != null) {

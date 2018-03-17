@@ -63,11 +63,16 @@ namespace EmployesTableApp
 
         public DetailOrderArrivalController (IntPtr handle) : base (handle)
         {
+            
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+
+            UIPickerViewModel orderNameModel = new OrderNameModel(OrderName, X_Name);
+            OrderNamePicker.Model = orderNameModel;
+
 
             if (OrderName != null){
                 NameField.Text = OrderName;

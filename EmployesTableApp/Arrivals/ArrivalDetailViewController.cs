@@ -70,7 +70,7 @@ namespace EmployesTableApp
         {
             base.PrepareForSegue(segue, sender);
 
-            var orderDetailController = segue.DestinationViewController as DetailOrderArrivalController;
+            var orderDetailController = segue.DestinationViewController as DOAController;
 
 
             NSIndexPath indexCell = OrderArrivalTableVIew.IndexPathForSelectedRow;
@@ -88,7 +88,7 @@ namespace EmployesTableApp
             
             //int newFlightID = orders[orders.Count - 1].Flight_id + 1;
             Order newOrder = new Order { Flight_id = Flight_ID };
-            var detail = Storyboard.InstantiateViewController("detail") as DetailOrderArrivalController;
+            var detail = Storyboard.InstantiateViewController("detail") as DOAController;
 
 
             orders.Add(newOrder);

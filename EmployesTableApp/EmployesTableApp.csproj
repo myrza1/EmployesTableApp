@@ -151,10 +151,12 @@
       <DependentUpon>OrderAirrvalsCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Arrivals\StatusViewModel.cs" />
-    <Compile Include="Arrivals\DetailOrderArrivalController.cs" />
-    <Compile Include="Arrivals\DetailOrderArrivalController.designer .cs">
-      <DependentUpon>DetailOrderArrivalController.cs</DependentUpon>
+    <Compile Include="Arrivals\OrderNameModel.cs" />
+    <Compile Include="Arrivals\DOAController.cs" />
+    <Compile Include="Arrivals\DOAController.designer.cs">
+      <DependentUpon>DOAController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\OrderType.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
