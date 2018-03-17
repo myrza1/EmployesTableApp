@@ -11,6 +11,7 @@ namespace EmployesTableApp.Domain
         private DateTime end_time;
         private float liters;
         private float density;
+
         private int flight_id;
         private bool statusDone;
         private int order_ID;
@@ -135,5 +136,6 @@ namespace EmployesTableApp.Domain
 
         public int Order_ID { get => order_ID; set => order_ID = value; }
         public string X_name { get => x_name; set => x_name = value; }
+   
     }
 }

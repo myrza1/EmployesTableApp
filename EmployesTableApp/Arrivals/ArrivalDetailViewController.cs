@@ -55,6 +55,12 @@ namespace EmployesTableApp
                 order.Status = item.Status;
                 order.Flight_id = item.Flight_id;
                 order.Order_ID = item.Order_id;
+                order.Doc_no = item.Doc_no;
+
+                order.Mani = item.Mani;
+                order.Liters = item.Liters;
+                order.Density = item.Density;
+
                 orders.Add(order);
             }
 
@@ -80,6 +86,10 @@ namespace EmployesTableApp
             orderDetailController.Flight_ID = orders[indexCell.Row].Flight_id;
             orderDetailController.OrderStatus = orders[indexCell.Row].Status;
             orderDetailController.Order_ID = orders[indexCell.Row].Order_ID;
+            orderDetailController.Fuel_Flip_Mo = orders[indexCell.Row].Doc_no;
+            orderDetailController.Manni = orders[indexCell.Row].Mani;
+            orderDetailController.Liters = orders[indexCell.Row].Liters;
+            orderDetailController.Density = orders[indexCell.Row].Density;
             orderDetailController.SetTask(this,orders[indexCell.Row]);
         }
 

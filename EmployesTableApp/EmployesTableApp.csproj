@@ -124,19 +124,6 @@
     </Compile>
     <Compile Include="Domain\Order.cs" />
     <Compile Include="Domain\Flights.cs" />
-    <None Include="Web References\RefServiceTSE\Service1.wsdl" />
-    <None Include="Web References\RefServiceTSE\Service1.xsd" />
-    <None Include="Web References\RefServiceTSE\Service10.xsd" />
-    <None Include="Web References\RefServiceTSE\Service11.xsd" />
-    <None Include="Web References\RefServiceTSE\Service12.xsd" />
-    <None Include="Web References\RefServiceTSE\Service1.disco" />
-    <None Include="Web References\RefServiceTSE\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Compile Include="Web References\RefServiceTSE\Reference.cs">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="Arrivals\ArrivalDetailViewController.cs" />
     <Compile Include="Arrivals\ArrivalDetailViewController.designer.cs">
       <DependentUpon>ArrivalDetailViewController.cs</DependentUpon>
@@ -157,6 +144,19 @@
       <DependentUpon>DOAController.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\OrderType.cs" />
+    <None Include="Web References\RefServiceTSE\Service1.wsdl" />
+    <None Include="Web References\RefServiceTSE\Service1.xsd" />
+    <None Include="Web References\RefServiceTSE\Service10.xsd" />
+    <None Include="Web References\RefServiceTSE\Service11.xsd" />
+    <None Include="Web References\RefServiceTSE\Service12.xsd" />
+    <None Include="Web References\RefServiceTSE\Service1.disco" />
+    <None Include="Web References\RefServiceTSE\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Compile Include="Web References\RefServiceTSE\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />

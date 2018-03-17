@@ -10,10 +10,12 @@ namespace EmployesTableApp
         private string orderName;
         private string x_Name;
         List<OrderType> orderTypes;
+        UITableViewCell fuelViewCell;
 
-        public OrderNameModel(List<OrderType> orderTypes)
+        public OrderNameModel(List<OrderType> orderTypes, UITableViewCell fuelViewCell)
         {
             this.orderTypes = orderTypes;
+            this.fuelViewCell = fuelViewCell;
 
         }
 
@@ -41,6 +43,8 @@ namespace EmployesTableApp
 		{
             orderName = orderTypes[(int)row].Name;
             x_Name = orderTypes[(int)row].Type;
+            if (x_Name == "FUE") fuelViewCell.Hidden = false;
+            else fuelViewCell.Hidden = true;
             //Delegate.SaveOrderName(
             //    orderTypes[(int)row]
             //);«

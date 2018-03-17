@@ -20,15 +20,27 @@ namespace EmployesTableApp
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField DensityField { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UISwitch DoneSwich { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField NameField0202 { get; set; }
+        UIKit.UITextField FlipNOField { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableViewCell ordername { get; set; }
+        UIKit.UITableViewCell fuelViewCell { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField KilosField { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField LiterField { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -57,19 +69,34 @@ namespace EmployesTableApp
                 DeleteButton = null;
             }
 
+            if (DensityField != null) {
+                DensityField.Dispose ();
+                DensityField = null;
+            }
+
             if (DoneSwich != null) {
                 DoneSwich.Dispose ();
                 DoneSwich = null;
             }
 
-            if (NameField0202 != null) {
-                NameField0202.Dispose ();
-                NameField0202 = null;
+            if (FlipNOField != null) {
+                FlipNOField.Dispose ();
+                FlipNOField = null;
             }
 
-            if (ordername != null) {
-                ordername.Dispose ();
-                ordername = null;
+            if (fuelViewCell != null) {
+                fuelViewCell.Dispose ();
+                fuelViewCell = null;
+            }
+
+            if (KilosField != null) {
+                KilosField.Dispose ();
+                KilosField = null;
+            }
+
+            if (LiterField != null) {
+                LiterField.Dispose ();
+                LiterField = null;
             }
 
             if (OrderNamePicker != null) {
