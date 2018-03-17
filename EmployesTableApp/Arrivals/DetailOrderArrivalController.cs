@@ -18,6 +18,8 @@ namespace EmployesTableApp
             currentOrder.Name = NameField.Text;
         //    currentOrder.Status = OrderStatus;
             currentOrder.Status = DoneSwich.On ? "Encluded" : "No";
+            currentOrder.Order_ID = Order_ID;
+           // currentOrder.Flight_id = Flight_ID;
             Delegate.SaveTask(currentOrder);
         }
 
@@ -27,6 +29,16 @@ namespace EmployesTableApp
             set;
         }
 
+        public string X_Name
+        {
+            get;
+            set;
+        }
+
+        public int  Order_ID{
+            get;
+            set;
+        }
         partial void DeteleOrder(UIButton sender)
         {
             Delegate.DeleteTask(currentOrder);
@@ -59,7 +71,6 @@ namespace EmployesTableApp
 
             if (OrderName != null){
                 NameField.Text = OrderName;
-                
                 DoneSwich.On = OrderStatus.Length > 4 ? true : false;
             }
             Flight_ID = Flight_ID;

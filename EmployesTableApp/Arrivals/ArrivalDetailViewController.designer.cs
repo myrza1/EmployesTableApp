@@ -20,6 +20,10 @@ namespace EmployesTableApp
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIActivityIndicatorView MyArirvalActivities { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITableView OrderArrivalTableVIew { get; set; }
 
         [Action ("CreateOrder:")]
@@ -31,6 +35,11 @@ namespace EmployesTableApp
             if (addButton != null) {
                 addButton.Dispose ();
                 addButton = null;
+            }
+
+            if (MyArirvalActivities != null) {
+                MyArirvalActivities.Dispose ();
+                MyArirvalActivities = null;
             }
 
             if (OrderArrivalTableVIew != null) {

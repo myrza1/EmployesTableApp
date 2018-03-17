@@ -32,6 +32,24 @@
   <wsdl:message name="IService1_getFlightOrdersArrivals_OutputMessage">
     <wsdl:part name="parameters" element="tns:getFlightOrdersArrivalsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_updateOrdersArrivalFlights_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateOrdersArrivalFlights" />
+  </wsdl:message>
+  <wsdl:message name="IService1_updateOrdersArrivalFlights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateOrdersArrivalFlightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_kosytOrdersArrivalFlights_InputMessage">
+    <wsdl:part name="parameters" element="tns:kosytOrdersArrivalFlights" />
+  </wsdl:message>
+  <wsdl:message name="IService1_kosytOrdersArrivalFlights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:kosytOrdersArrivalFlightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_owiryOrdersArrivalFlights_InputMessage">
+    <wsdl:part name="parameters" element="tns:owiryOrdersArrivalFlights" />
+  </wsdl:message>
+  <wsdl:message name="IService1_owiryOrdersArrivalFlights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:owiryOrdersArrivalFlightsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -48,6 +66,18 @@
     <wsdl:operation name="getFlightOrdersArrivals">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/getFlightOrdersArrivals" message="tns:IService1_getFlightOrdersArrivals_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/getFlightOrdersArrivalsResponse" message="tns:IService1_getFlightOrdersArrivals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateOrdersArrivalFlights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/updateOrdersArrivalFlights" message="tns:IService1_updateOrdersArrivalFlights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/updateOrdersArrivalFlightsResponse" message="tns:IService1_updateOrdersArrivalFlights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="kosytOrdersArrivalFlights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/kosytOrdersArrivalFlights" message="tns:IService1_kosytOrdersArrivalFlights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/kosytOrdersArrivalFlightsResponse" message="tns:IService1_kosytOrdersArrivalFlights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="owiryOrdersArrivalFlights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/owiryOrdersArrivalFlights" message="tns:IService1_owiryOrdersArrivalFlights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/owiryOrdersArrivalFlightsResponse" message="tns:IService1_owiryOrdersArrivalFlights_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -81,6 +111,33 @@
     </wsdl:operation>
     <wsdl:operation name="getFlightOrdersArrivals">
       <soap:operation soapAction="http://tempuri.org/IService1/getFlightOrdersArrivals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateOrdersArrivalFlights">
+      <soap:operation soapAction="http://tempuri.org/IService1/updateOrdersArrivalFlights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kosytOrdersArrivalFlights">
+      <soap:operation soapAction="http://tempuri.org/IService1/kosytOrdersArrivalFlights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="owiryOrdersArrivalFlights">
+      <soap:operation soapAction="http://tempuri.org/IService1/owiryOrdersArrivalFlights" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -18,7 +18,7 @@ namespace EmployesTableApp.RefServiceTSE {
     
     
     /// CodeRemarks
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IService1", Namespace="http://tempuri.org/")]
@@ -31,6 +31,12 @@ namespace EmployesTableApp.RefServiceTSE {
         private System.Threading.SendOrPostCallback getFlightArrivalsOperationCompleted;
         
         private System.Threading.SendOrPostCallback getFlightOrdersArrivalsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback updateOrdersArrivalFlightsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback kosytOrdersArrivalFlightsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback owiryOrdersArrivalFlightsOperationCompleted;
         
         /// CodeRemarks
         public Service1() {
@@ -52,6 +58,15 @@ namespace EmployesTableApp.RefServiceTSE {
         
         /// CodeRemarks
         public event getFlightOrdersArrivalsCompletedEventHandler getFlightOrdersArrivalsCompleted;
+        
+        /// CodeRemarks
+        public event updateOrdersArrivalFlightsCompletedEventHandler updateOrdersArrivalFlightsCompleted;
+        
+        /// CodeRemarks
+        public event kosytOrdersArrivalFlightsCompletedEventHandler kosytOrdersArrivalFlightsCompleted;
+        
+        /// CodeRemarks
+        public event owiryOrdersArrivalFlightsCompletedEventHandler owiryOrdersArrivalFlightsCompleted;
         
         /// CodeRemarks
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/GetData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -182,13 +197,105 @@ namespace EmployesTableApp.RefServiceTSE {
         }
         
         /// CodeRemarks
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/updateOrdersArrivalFlights", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void updateOrdersArrivalFlights([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Order order, out int updateOrdersArrivalFlightsResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool updateOrdersArrivalFlightsResultSpecified) {
+            object[] results = this.Invoke("updateOrdersArrivalFlights", new object[] {
+                        order});
+            updateOrdersArrivalFlightsResult = ((int)(results[0]));
+            updateOrdersArrivalFlightsResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// CodeRemarks
+        public void updateOrdersArrivalFlightsAsync(Order order) {
+            this.updateOrdersArrivalFlightsAsync(order, null);
+        }
+        
+        /// CodeRemarks
+        public void updateOrdersArrivalFlightsAsync(Order order, object userState) {
+            if ((this.updateOrdersArrivalFlightsOperationCompleted == null)) {
+                this.updateOrdersArrivalFlightsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdateOrdersArrivalFlightsOperationCompleted);
+            }
+            this.InvokeAsync("updateOrdersArrivalFlights", new object[] {
+                        order}, this.updateOrdersArrivalFlightsOperationCompleted, userState);
+        }
+        
+        private void OnupdateOrdersArrivalFlightsOperationCompleted(object arg) {
+            if ((this.updateOrdersArrivalFlightsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.updateOrdersArrivalFlightsCompleted(this, new updateOrdersArrivalFlightsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// CodeRemarks
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/kosytOrdersArrivalFlights", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void kosytOrdersArrivalFlights([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Order order, out int kosytOrdersArrivalFlightsResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool kosytOrdersArrivalFlightsResultSpecified) {
+            object[] results = this.Invoke("kosytOrdersArrivalFlights", new object[] {
+                        order});
+            kosytOrdersArrivalFlightsResult = ((int)(results[0]));
+            kosytOrdersArrivalFlightsResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// CodeRemarks
+        public void kosytOrdersArrivalFlightsAsync(Order order) {
+            this.kosytOrdersArrivalFlightsAsync(order, null);
+        }
+        
+        /// CodeRemarks
+        public void kosytOrdersArrivalFlightsAsync(Order order, object userState) {
+            if ((this.kosytOrdersArrivalFlightsOperationCompleted == null)) {
+                this.kosytOrdersArrivalFlightsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnkosytOrdersArrivalFlightsOperationCompleted);
+            }
+            this.InvokeAsync("kosytOrdersArrivalFlights", new object[] {
+                        order}, this.kosytOrdersArrivalFlightsOperationCompleted, userState);
+        }
+        
+        private void OnkosytOrdersArrivalFlightsOperationCompleted(object arg) {
+            if ((this.kosytOrdersArrivalFlightsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.kosytOrdersArrivalFlightsCompleted(this, new kosytOrdersArrivalFlightsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// CodeRemarks
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/owiryOrdersArrivalFlights", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void owiryOrdersArrivalFlights(int order_id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool order_idSpecified, out int owiryOrdersArrivalFlightsResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool owiryOrdersArrivalFlightsResultSpecified) {
+            object[] results = this.Invoke("owiryOrdersArrivalFlights", new object[] {
+                        order_id,
+                        order_idSpecified});
+            owiryOrdersArrivalFlightsResult = ((int)(results[0]));
+            owiryOrdersArrivalFlightsResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// CodeRemarks
+        public void owiryOrdersArrivalFlightsAsync(int order_id, bool order_idSpecified) {
+            this.owiryOrdersArrivalFlightsAsync(order_id, order_idSpecified, null);
+        }
+        
+        /// CodeRemarks
+        public void owiryOrdersArrivalFlightsAsync(int order_id, bool order_idSpecified, object userState) {
+            if ((this.owiryOrdersArrivalFlightsOperationCompleted == null)) {
+                this.owiryOrdersArrivalFlightsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnowiryOrdersArrivalFlightsOperationCompleted);
+            }
+            this.InvokeAsync("owiryOrdersArrivalFlights", new object[] {
+                        order_id,
+                        order_idSpecified}, this.owiryOrdersArrivalFlightsOperationCompleted, userState);
+        }
+        
+        private void OnowiryOrdersArrivalFlightsOperationCompleted(object arg) {
+            if ((this.owiryOrdersArrivalFlightsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.owiryOrdersArrivalFlightsCompleted(this, new owiryOrdersArrivalFlightsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// CodeRemarks
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -208,7 +315,7 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -241,6 +348,24 @@ namespace EmployesTableApp.RefServiceTSE {
         public bool Flight_idSpecified;
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Flightunique_id;
+        
+        /// <remarks/>
+        public bool IsDeleted;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IsDeletedSpecified;
+        
+        /// <remarks/>
+        public bool IsFinished;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IsFinishedSpecified;
+        
+        /// <remarks/>
         public float Liters;
         
         /// <remarks/>
@@ -252,8 +377,22 @@ namespace EmployesTableApp.RefServiceTSE {
         public string Mani;
         
         /// <remarks/>
+        public int Movement_id;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Movement_idSpecified;
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Name;
+        
+        /// <remarks/>
+        public int Order_id;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Order_idSpecified;
         
         /// <remarks/>
         public System.DateTime Start_time;
@@ -265,10 +404,14 @@ namespace EmployesTableApp.RefServiceTSE {
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Status;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string X_name;
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -329,7 +472,7 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -351,7 +494,7 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -371,7 +514,7 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -481,7 +624,7 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -529,7 +672,7 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -612,7 +755,7 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -794,11 +937,11 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// CodeRemarks
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     public delegate void GetDataCompletedEventHandler(object sender, GetDataCompletedEventArgs e);
     
     /// CodeRemarks
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -820,11 +963,11 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// CodeRemarks
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     public delegate void GetDataUsingDataContractCompletedEventHandler(object sender, GetDataUsingDataContractCompletedEventArgs e);
     
     /// CodeRemarks
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetDataUsingDataContractCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -846,11 +989,11 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// CodeRemarks
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     public delegate void getFlightArrivalsCompletedEventHandler(object sender, getFlightArrivalsCompletedEventArgs e);
     
     /// CodeRemarks
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class getFlightArrivalsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -872,11 +1015,11 @@ namespace EmployesTableApp.RefServiceTSE {
     }
     
     /// CodeRemarks
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     public delegate void getFlightOrdersArrivalsCompletedEventHandler(object sender, getFlightOrdersArrivalsCompletedEventArgs e);
     
     /// CodeRemarks
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.3.3.23")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class getFlightOrdersArrivalsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -893,6 +1036,108 @@ namespace EmployesTableApp.RefServiceTSE {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Order[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
+    public delegate void updateOrdersArrivalFlightsCompletedEventHandler(object sender, updateOrdersArrivalFlightsCompletedEventArgs e);
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class updateOrdersArrivalFlightsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal updateOrdersArrivalFlightsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// CodeRemarks
+        public int updateOrdersArrivalFlightsResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        /// CodeRemarks
+        public bool updateOrdersArrivalFlightsResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
+    public delegate void kosytOrdersArrivalFlightsCompletedEventHandler(object sender, kosytOrdersArrivalFlightsCompletedEventArgs e);
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class kosytOrdersArrivalFlightsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal kosytOrdersArrivalFlightsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// CodeRemarks
+        public int kosytOrdersArrivalFlightsResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        /// CodeRemarks
+        public bool kosytOrdersArrivalFlightsResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
+    public delegate void owiryOrdersArrivalFlightsCompletedEventHandler(object sender, owiryOrdersArrivalFlightsCompletedEventArgs e);
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.4.0.1033")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class owiryOrdersArrivalFlightsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal owiryOrdersArrivalFlightsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// CodeRemarks
+        public int owiryOrdersArrivalFlightsResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        /// CodeRemarks
+        public bool owiryOrdersArrivalFlightsResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
             }
         }
     }

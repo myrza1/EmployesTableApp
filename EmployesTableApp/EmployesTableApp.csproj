@@ -74,13 +74,14 @@
     <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
     <CodesignProvision>VS: com.oat.EmployesTableApp Development</CodesignProvision>
     <MtouchLink>None</MtouchLink>
+    <BuildIpa>true</BuildIpa>
+    <IpaMetadata>Info.plist</IpaMetadata>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Compile Include="Broker.cs" />
     <Compile Include="Data\Functional.cs" />
     <Compile Include="Flight.cs" />
     <Compile Include="FlightsCell.cs" />
@@ -117,35 +118,12 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\TSEService\SITAAMSIntegrationService.wsdl" />
-    <Compile Include="ArrivalsViewController.cs" />
-    <Compile Include="ArrivalsViewController.designer.cs">
-      <DependentUpon>ArrivalsViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="DepartureViewController.cs" />
     <Compile Include="DepartureViewController.designer.cs">
       <DependentUpon>DepartureViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ArrivalDetailViewController.cs" />
-    <Compile Include="ArrivalDetailViewController.designer.cs">
-      <DependentUpon>ArrivalDetailViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OrderAirrvalsCell.cs" />
-    <Compile Include="OrderAirrvalsCell.designer.cs">
-      <DependentUpon>OrderAirrvalsCell.cs</DependentUpon>
-    </Compile>
     <Compile Include="Domain\Order.cs" />
     <Compile Include="Domain\Flights.cs" />
-    <Compile Include="OrdersTVS.cs" />
-    <Compile Include="OrderEditCell.cs" />
-    <Compile Include="OrderEditCell.designer.cs">
-      <DependentUpon>OrderEditCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OrderDetailsTVS.cs" />
-    <Compile Include="DetailOrderArrivalController.cs" />
-    <Compile Include="DetailOrderArrivalController.designer.cs">
-      <DependentUpon>DetailOrderArrivalController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StatusViewModel.cs" />
     <None Include="Web References\RefServiceTSE\Service1.wsdl" />
     <None Include="Web References\RefServiceTSE\Service1.xsd" />
     <None Include="Web References\RefServiceTSE\Service10.xsd" />
@@ -159,6 +137,24 @@
     <Compile Include="Web References\RefServiceTSE\Reference.cs">
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Arrivals\ArrivalDetailViewController.cs" />
+    <Compile Include="Arrivals\ArrivalDetailViewController.designer.cs">
+      <DependentUpon>ArrivalDetailViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Arrivals\ArrivalsViewController.cs" />
+    <Compile Include="Arrivals\ArrivalsViewController.designer.cs">
+      <DependentUpon>ArrivalsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Arrivals\OrdersTVS.cs" />
+    <Compile Include="Arrivals\OrderAirrvalsCell.cs" />
+    <Compile Include="Arrivals\OrderAirrvalsCell.designer.cs">
+      <DependentUpon>OrderAirrvalsCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Arrivals\StatusViewModel.cs" />
+    <Compile Include="Arrivals\DetailOrderArrivalController.cs" />
+    <Compile Include="Arrivals\DetailOrderArrivalController.designer .cs">
+      <DependentUpon>DetailOrderArrivalController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
@@ -168,11 +164,12 @@
     <Reference Include="Mono.Data.Sqlite" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
@@ -252,9 +249,11 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ItunesArtwork%402x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
+    <Folder Include="Arrivals\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

@@ -207,11 +207,17 @@
       <xs:element minOccurs="0" name="Doc_no" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="End_time" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Flight_id" type="xs:int" />
+      <xs:element minOccurs="0" name="Flightunique_id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFinished" type="xs:boolean" />
       <xs:element minOccurs="0" name="Liters" type="xs:float" />
       <xs:element minOccurs="0" name="Mani" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Movement_id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order_id" type="xs:int" />
       <xs:element minOccurs="0" name="Start_time" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X_name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Order" nillable="true" type="tns:Order" />
