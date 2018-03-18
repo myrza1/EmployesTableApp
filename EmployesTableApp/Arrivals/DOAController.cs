@@ -119,7 +119,7 @@ namespace EmployesTableApp
 
                 OrderNamePicker.Select((int)indeccc,0,true);
 
-                if (orderTypes[indeccc].Type != "FUE") fuelViewCell.Hidden = true;
+                if (indeccc == -1 || orderTypes[indeccc].Type != "FUE") fuelViewCell.Hidden = true;
 
                 FlipNOField.Text = Fuel_Flip_Mo;
                 LiterField.Text = Liters.ToString();
@@ -142,11 +142,13 @@ namespace EmployesTableApp
             //    currentOrder.order = OrderStatus;
             currentOrder.Status = DoneSwich.On ? "Encluded" : "No";
             currentOrder.Order_ID = Order_ID;
-            currentOrder.Liters = Convert.ToInt32(LiterField.Text);
-            currentOrder.Doc_no = FlipNOField.Text;
-            currentOrder.Density = Convert.ToInt32(DensityField.Text);
-            currentOrder.Mani = KilosField.Text;
 
+            if (orderTypes[(int)OrderNamePicker.SelectedRowInComponent(0)].Type == "FUE"){
+                currentOrder.Liters = Convert.ToInt32(LiterField.Text);
+                currentOrder.Doc_no = FlipNOField.Text;
+                currentOrder.Density = Convert.ToInt32(DensityField.Text);
+                currentOrder.Mani = KilosField.Text;   
+            }
 
             currentOrder.X_name = orderTypes[(int)OrderNamePicker.SelectedRowInComponent(0)].Type;
             Delegate.SaveTask(currentOrder);

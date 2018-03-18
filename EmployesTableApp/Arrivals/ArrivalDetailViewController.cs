@@ -144,7 +144,7 @@ namespace EmployesTableApp
             MyArirvalActivities.Hidden = true;
         }
 
-        public  void SaveTask(Order order)
+        public void SaveTask(Order order)
         {
             MyArirvalActivities.Hidden = false;
             MyArirvalActivities.StartAnimating();
@@ -158,20 +158,20 @@ namespace EmployesTableApp
             orderR.End_timeSpecified = true;
             orderR.Start_time = DateTime.Today;
             orderR.Start_timeSpecified = true;
-            orderR.Name = oldOrder.Name;
+            orderR.Name = order.Name;
             orderR.DensitySpecified = true;
-            orderR.Order_id = oldOrder.Order_ID;
+            orderR.Order_id = order.Order_ID;
             orderR.Order_idSpecified = true;
-            orderR.Status = oldOrder.Status;
+            orderR.Status = order.Status;
             orderR.Flight_idSpecified = true;
             orderR.LitersSpecified = true;
             orderR.Movement_idSpecified = true;
-            orderR.X_name = oldOrder.X_name;
-            orderR.Mani = oldOrder.Mani;
-            orderR.Density = oldOrder.Density;
-            orderR.Doc_no = oldOrder.Doc_no;
-            orderR.Flight_id = oldOrder.Flight_id;
-            orderR.Liters = oldOrder.Liters;
+            orderR.X_name = order.X_name;
+            orderR.Mani = order.Mani;
+            orderR.Density = order.Density;
+            orderR.Doc_no = order.Doc_no;
+            orderR.Flight_id = order.Flight_id;
+            orderR.Liters = order.Liters;
 
             try
             {
